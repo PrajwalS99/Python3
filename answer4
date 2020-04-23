@@ -1,0 +1,17 @@
+name = input("Enter file:")
+counts = dict()
+handle = open(name)
+for line in handle:
+	if line.startswith('From '):
+		line = line.rstrip()
+		line = line . split()
+		counts[line[1]] = counts.get(line[1],0) + 1
+
+bigcount = None
+bigword = None
+for word,count in counts.items():
+	if bigcount is None or count>bigcount:
+		bigcount = count
+		bigword = word
+print (bigword , bigcount)
+
